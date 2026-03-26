@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV // AYGOUM ISAYEV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cyan:        #00f0ff;
+      --cyan-glow:   rgba(0,240,255,0.2);
+      --cyan-dim:    rgba(0,240,255,0.07);
+      --yellow:      #f5e642;
+      --yellow-glow: rgba(245,230,66,0.2);
+      --yellow-dim:  rgba(245,230,66,0.07);
+      --red:         #ff003c;
+      --bg:          #060608;
+      --surface:     #0e1017;
+      --surface2:    #131520;
+      --border:      rgba(0,240,255,0.12);
+      --text:        #b0b8c8;
+      --text-dim:    #4a5568;
+      --heading:     #e8eaf0;
+      --font-display:'Bebas Neue', sans-serif;
+      --font-body:   'Rajdhani', sans-serif;
+      --font-mono:   'Share Tech Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      padding: 3rem 2rem;
+    }
+
+    /* SCANLINES */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        to bottom, transparent, transparent 2px,
+        rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px
+      );
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* GRID BACKGROUND */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-btn {
+      position: fixed;
+      top: 1.5rem; right: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      color: var(--bg);
+      background: var(--cyan);
+      border: none;
+      padding: .6rem 1.4rem;
+      cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+      z-index: 200;
+      transition: background .2s;
+    }
+    .print-btn:hover { background: var(--yellow); }
+
+    /* ── WRAPPER ── */
+    .cv-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--yellow), var(--cyan));
+      background-size: 200%;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { 0%{background-position:0%} 100%{background-position:200%} }
+
+    .cv-header::after {
+      content: 'CV//2025';
+      position: absolute;
+      bottom: 1rem; right: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--text-dim);
+      letter-spacing: .15em;
+    }
+
+    .header-left {}
+
+    .header-label {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--cyan);
+      letter-spacing: .2em;
+      margin-bottom: .8rem;
+    }
+
+    .header-name {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: .95;
+      color: var(--heading);
+    }
+    .header-name span { color: var(--yellow); text-shadow: 0 0 20px var(--yellow-glow); }
+
+    .header-title {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--cyan);
+      letter-spacing: .1em;
+      margin-top: .8rem;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      text-align: right;
+    }
+
+    .contact-row {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--text-dim);
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: .6rem;
+    }
+    .contact-row .icon {
+      color: var(--cyan);
+      font-size: .8rem;
+    }
+
+    /* ── MAIN GRID ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
+    }
+
+    /* ── PANELS ── */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      position: relative;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--heading);
+      letter-spacing: .08em;
+      margin-bottom: 1.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .panel-title::before {
+      content: '';
+      width: 3px;
+      height: 1.2rem;
+      background: var(--yellow);
+      display: block;
+      box-shadow: 0 0 8px var(--yellow-glow);
+    }
+    .panel-title .panel-num {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--text-dim);
+      margin-left: auto;
+      letter-spacing: .1em;
+    }
+
+    /* ── EXPERIENCE ITEMS ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--cyan);
+      letter-spacing: .05em;
+      padding-top: .15rem;
+      line-height: 1.5;
+    }
+
+    .exp-content {}
+
+    .exp-company {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--heading);
+      margin-bottom: .2rem;
+    }
+
+    .exp-role {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--yellow);
+      letter-spacing: .08em;
+      margin-bottom: .5rem;
+    }
+
+    .exp-desc {
+      font-size: .88rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .exp-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0,240,255,.2);
+      padding: .15rem .5rem;
+      margin-top: .5rem;
+    }
+
+    /* ── EDUCATION ITEMS ── */
+    .edu-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .edu-item {
+      padding: 1rem;
+      background: var(--surface2);
+      border-left: 2px solid var(--cyan);
+      position: relative;
+    }
+    .edu-item.current { border-left-color: var(--yellow); }
+    .edu-item.current::after {
+      content: 'EN COURS';
+      position: absolute;
+      top: .7rem; right: .8rem;
+      font-family: var(--font-mono);
+      font-size: .55rem;
+      color: var(--yellow);
+      letter-spacing: .1em;
+      border: 1px solid rgba(245,230,66,.3);
+      padding: .1rem .4rem;
+    }
+
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--text-dim);
+      letter-spacing: .08em;
+      margin-bottom: .4rem;
+    }
+
+    .edu-school {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--heading);
+      margin-bottom: .2rem;
+    }
+
+    .edu-diploma {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--cyan);
+      letter-spacing: .05em;
+    }
+    .edu-item.current .edu-diploma { color: var(--yellow); }
+
+    /* ── SKILLS SIDEBAR ── */
+    .skill-group { margin-bottom: 1.5rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-title {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--yellow);
+      letter-spacing: .18em;
+      margin-bottom: .8rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0,240,255,.18);
+      padding: .2rem .55rem;
+      letter-spacing: .04em;
+      transition: background .2s, border-color .2s;
+    }
+    .tag:hover {
+      background: rgba(0,240,255,.15);
+      border-color: var(--cyan);
+    }
+    .tag.yellow {
+      color: var(--yellow);
+      background: var(--yellow-dim);
+      border-color: rgba(245,230,66,.18);
+    }
+    .tag.red {
+      color: #ff6b8a;
+      background: rgba(255,0,60,.07);
+      border-color: rgba(255,0,60,.2);
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .info-box-label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--text-dim);
+      letter-spacing: .15em;
+      margin-bottom: .6rem;
+    }
+    .info-box-val {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--heading);
+    }
+
+    /* ── CORNER DECO ── */
+    .panel .corner-tl,
+    .panel .corner-br {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-color: var(--cyan);
+      border-style: solid;
+    }
+    .corner-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+    .corner-br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      body { background: white; color: #111; padding: 0; }
+      body::before, body::after { display: none; }
+      :root {
+        --bg: white;
+        --surface: #f8f8f8;
+        --surface2: #f0f0f0;
+        --heading: #111;
+        --text: #333;
+        --text-dim: #666;
+        --border: #ddd;
+        --cyan: #0066cc;
+        --cyan-dim: #e8f0fb;
+        --yellow: #cc8800;
+        --yellow-dim: #fdf8e8;
+      }
+      .print-btn { display: none; }
+      .panel::before { display: none; }
+      .cv-header::before { display: none; }
+      .cv-header::after { color: #999; }
+    }
+
+    @media (max-width: 700px) {
+      .cv-body { grid-template-columns: 1fr; }
+      .cv-header { flex-direction: column; gap: 1.5rem; }
+      .header-right { text-align: left; }
+      .contact-row { justify-content: flex-start; }
+      .header-name { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">⎙ IMPRIMER / PDF</button>
+
+  <div class="cv-wrapper">
+
+    <!-- HEADER -->
+    <div class="cv-header">
+      <div class="header-left">
+        <div class="header-label">// CURRICULUM VITAE — DOSSIER PERSONNEL</div>
+        <div class="header-name">AYGOUM<br><span>ISAYEV</span></div>
+        <div class="header-title">&gt;&gt; Étudiant BTS SIO option SISR // Nantes</div>
+      </div>
+      <div class="header-right">
+        <div class="contact-row">
+          <span>25 juin 2007</span>
+          <span class="icon">◈</span>
+        </div>
+        <div class="contact-row">
+          <span>07 83 52 14 06</span>
+          <span class="icon">✆</span>
+        </div>
+        <div class="contact-row">
+          <span>aygoumisv@gmail.com</span>
+          <span class="icon">✉</span>
+        </div>
+        <div class="contact-row">
+          <span>4 rue du bois hue, Nantes 44300</span>
+          <span class="icon">◉</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="cv-body">
+
+      <!-- COLONNE GAUCHE -->
+      <div class="cv-left">
+
+        <!-- EXPÉRIENCES -->
+        <div class="panel" style="margin-bottom:1.5rem">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-title">
+            EXPÉRIENCES
+            <span class="panel-num">01 //</span>
+          </div>
+          <div class="exp-list">
+
+            <div class="exp-item">
+              <div class="exp-date">2024<br>2025</div>
+              <div class="exp-content">
+                <div class="exp-company">UNIVERS INFORMATIQUE</div>
+                <div class="exp-role">STAGE TECHNICIEN // 6 SEMAINES</div>
+                <div class="exp-desc">
+                  Stage en entreprise informatique. Support, maintenance
+                  et dépannage matériel/logiciel en environnement professionnel.
+                </div>
+                <span class="exp-badge">6 SEMAINES</span>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-date">2023<br>2024</div>
+              <div class="exp-content">
+                <div class="exp-company">UNDERDOG</div>
+                <div class="exp-role">STAGE TECHNICIEN // 4 SEMAINES</div>
+                <div class="exp-desc">
+                  Stage en entreprise. Intervention terrain, résolution
+                  de problèmes techniques et relation client.
+                </div>
+                <span class="exp-badge">4 SEMAINES</span>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-date">2023<br>2024</div>
+              <div class="exp-content">
+                <div class="exp-company">ORDI-NET</div>
+                <div class="exp-role">STAGE TECHNICIEN // 4 SEMAINES</div>
+                <div class="exp-desc">
+                  Maintenance informatique, configuration de postes,
+                  dépannage matériel et logiciel.
+                </div>
+                <span class="exp-badge">4 SEMAINES</span>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-date">2021<br>2022</div>
+              <div class="exp-content">
+                <div class="exp-company">BIOCOOP</div>
+                <div class="exp-role">STAGE DE DÉCOUVERTE</div>
+                <div class="exp-desc">
+                  Découverte du monde professionnel en environnement
+                  commerce et logistique.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ÉDUCATION -->
+        <div class="panel">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-title">
+            ÉDUCATION
+            <span class="panel-num">02 //</span>
+          </div>
+          <div class="edu-list">
+
+            <div class="edu-item current">
+              <div class="edu-date">2025 — 2027</div>
+              <div class="edu-school">Lycée La Colinière — Nantes</div>
+              <div class="edu-diploma">BTS SIO // OPTION SISR</div>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-date">2022 — 2025</div>
+              <div class="edu-school">Lycée Arago — Nantes</div>
+              <div class="edu-diploma">BAC PRO Système Numérique // ARED</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLONNE DROITE (sidebar) -->
+      <div class="cv-right">
+
+        <!-- INFOS RAPIDES -->
+        <div class="panel" style="margin-bottom:1.5rem">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-title" style="font-size:1.1rem">
+            PROFIL
+            <span class="panel-num">00 //</span>
+          </div>
+          <div class="info-box">
+            <div class="info-box-label">FORMATION ACTUELLE</div>
+            <div class="info-box-val">BTS SIO SISR</div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-label">LOCALISATION</div>
+            <div class="info-box-val">Nantes, 44</div>
+          </div>
+          <div class="info-box" style="margin-bottom:0">
+            <div class="info-box-label">STATUT</div>
+            <div class="info-box-val" style="color:var(--cyan)">En recherche de stage</div>
+          </div>
+        </div>
+
+        <!-- COMPÉTENCES -->
+        <div class="panel">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-title" style="font-size:1.1rem">
+            COMPÉTENCES
+            <span class="panel-num">03 //</span>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">// INFORMATIQUE</div>
+            <div class="skill-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">Windows OS</span>
+              <span class="tag">Montage PC</span>
+              <span class="tag">Dépannage</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">// RÉSEAUX</div>
+            <div class="skill-tags">
+              <span class="tag yellow">Switch</span>
+              <span class="tag yellow">Routeur</span>
+              <span class="tag yellow">Maintenance</span>
+              <span class="tag yellow">Dépannage</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">// TÉLÉPHONIE</div>
+            <div class="skill-tags">
+              <span class="tag">Réparation mobile</span>
+              <span class="tag">Micro-soudure</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">// AUTRES</div>
+            <div class="skill-tags">
+              <span class="tag red">Électricité HB0</span>
+              <span class="tag red">Plomberie</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
