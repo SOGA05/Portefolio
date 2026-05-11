@@ -21,6 +21,12 @@
   <!-- GLITCH OVERLAY -->
   <div class="glitch-overlay" id="glitchOverlay"></div>
 
+  <!-- BOUTON THÈME -->
+  <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+    <span class="theme-toggle-icon">☀️</span>
+    <span class="theme-toggle-label">MODE CLAIR</span>
+  </button>
+
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-left">
@@ -35,10 +41,13 @@
       </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#hero" data-text="ACCUEIL">ACCUEIL</a></li>
-      <li><a href="#competences" data-text="SKILLS">SKILLS</a></li>
-      <li><a href="#projets" data-text="PROJETS">PROJETS</a></li>
-      <li><a href="#cv" data-text="CV">CV</a></li>
+      <li><a href="#hero">ACCUEIL</a></li>
+      <li><a href="#competences">SKILLS</a></li>
+      <li><a href="#entreprise">ENTREPRISE</a></li>
+      <li><a href="#projets">PROJETS</a></li>
+      <li><a href="#articles">ARTICLES</a></li>
+      <li><a href="#veille">VEILLE</a></li>
+      <li><a href="#contact">CONTACT</a></li>
     </ul>
     <div class="nav-right">
       <span class="nav-time" id="navTime">00:00:00</span>
@@ -70,8 +79,9 @@
       </div>
 
       <p class="hero-desc">
-        Technicien réseaux & systèmes, passionné par l'informatique depuis toujours.
-        Réparation, administration, dépannage. Basé à <span class="text-yellow">Nantes</span>.
+        Étudiant en BTS SIO option SISR au Lycée La Colinière de Nantes.
+        Passionné par les réseaux, l'administration système et l'informatique.
+        Basé à <span class="text-yellow">Nantes</span>.
       </p>
 
       <div class="hero-cta">
@@ -144,10 +154,6 @@
           <span class="tag">Maintenance</span>
           <span class="tag">Dépannage</span>
         </div>
-        <div class="skill-xp">
-          <span class="xp-label">XP</span>
-          <div class="xp-bar"><div class="xp-fill" style="--w:72%"></div></div>
-        </div>
       </div>
 
       <div class="skill-card" data-index="1">
@@ -161,10 +167,6 @@
           <span class="tag">Installation OS</span>
           <span class="tag">Dépannage</span>
           <span class="tag">Montage PC</span>
-        </div>
-        <div class="skill-xp">
-          <span class="xp-label">XP</span>
-          <div class="xp-bar"><div class="xp-fill" style="--w:80%"></div></div>
         </div>
       </div>
 
@@ -181,10 +183,6 @@
           <span class="tag tag-yellow">Python</span>
           <span class="tag tag-yellow">C++</span>
         </div>
-        <div class="skill-xp">
-          <span class="xp-label">XP</span>
-          <div class="xp-bar"><div class="xp-fill xp-yellow" style="--w:65%"></div></div>
-        </div>
       </div>
 
       <div class="skill-card" data-index="3">
@@ -199,19 +197,120 @@
           <span class="tag">Électricité HB0</span>
           <span class="tag">Plomberie</span>
         </div>
-        <div class="skill-xp">
-          <span class="xp-label">XP</span>
-          <div class="xp-bar"><div class="xp-fill" style="--w:78%"></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ENTREPRISE -->
+  <section id="entreprise" class="section">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-info">
+        <p class="section-tag">// PRÉSENTATION DE L'ENTREPRISE</p>
+        <h2 class="section-title">MON <span class="text-yellow">ENTREPRISE</span></h2>
+      </div>
+    </div>
+
+    <div class="entreprise-grid reveal">
+
+      <div class="entreprise-main">
+        <div class="panel">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-label">// IDENTITÉ</div>
+          <div class="entreprise-name">NOM DE L'ENTREPRISE</div>
+          <p class="entreprise-desc">
+            Décrivez ici l'activité principale de l'entreprise. Quel est son secteur ?
+            Que fait-elle ? Pour qui ? Depuis quand existe-t-elle ?
+          </p>
+          <div class="entreprise-tags">
+            <span class="tag">Secteur d'activité</span>
+            <span class="tag">Ville</span>
+            <span class="tag tag-yellow">Informatique</span>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-label">// INFRASTRUCTURE INFORMATIQUE</div>
+          <p class="entreprise-desc">
+            Décrivez l'infrastructure informatique de l'entreprise :
+            combien de postes, serveurs, type de réseau, logiciels utilisés,
+            organisation du service IT...
+          </p>
+          <div class="infra-grid">
+            <div class="infra-item">
+              <div class="infra-val">??</div>
+              <div class="infra-label">POSTES</div>
+            </div>
+            <div class="infra-item">
+              <div class="infra-val">??</div>
+              <div class="infra-label">SERVEURS</div>
+            </div>
+            <div class="infra-item">
+              <div class="infra-val">??</div>
+              <div class="infra-label">UTILISATEURS</div>
+            </div>
+            <div class="infra-item">
+              <div class="infra-val">??</div>
+              <div class="infra-label">SITES</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entreprise-side">
+        <div class="panel">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-label">// INFORMATIONS</div>
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-key">Secteur</span>
+              <span class="info-val">À compléter</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Taille</span>
+              <span class="info-val">À compléter</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Localisation</span>
+              <span class="info-val">Nantes</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Durée stage</span>
+              <span class="info-val text-cyan">6 semaines</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Période</span>
+              <span class="info-val">2024-2025</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="panel-label">// MES MISSIONS</div>
+          <ul class="mission-list">
+            <li>À compléter avec vos missions</li>
+            <li>Support utilisateur N1/N2</li>
+            <li>Maintenance réseau</li>
+            <li>Déploiement de postes</li>
+            <li>Administration système</li>
+          </ul>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- PROJETS -->
+  <!-- PROJETS / STAGES -->
   <section id="projets" class="section">
     <div class="section-header reveal">
-      <div class="section-num">02</div>
+      <div class="section-num">03</div>
       <div class="section-info">
         <p class="section-tag">// PROJETS & STAGES</p>
         <h2 class="section-title">MES <span class="text-yellow">RÉALISATIONS</span></h2>
@@ -239,7 +338,7 @@
         </div>
         <div class="project-footer">
           <span class="project-type">STAGE // 2024-2025 // 6 semaines</span>
-          <a href="#" class="project-link">VOIR →</a>
+          <a href="#articles" class="project-link">VOIR →</a>
         </div>
         <div class="card-corner tl"></div>
         <div class="card-corner br"></div>
@@ -318,17 +417,251 @@
     </div>
   </section>
 
+  <!-- ARTICLES TECHNIQUES -->
+  <section id="articles" class="section">
+    <div class="section-header reveal">
+      <div class="section-num">04</div>
+      <div class="section-info">
+        <p class="section-tag">// ACTIVITÉS TECHNIQUES DE STAGE</p>
+        <h2 class="section-title">ARTICLES <span class="text-yellow">TECHNIQUES</span></h2>
+      </div>
+    </div>
+
+    <div class="articles-intro reveal">
+      <div class="panel articles-info-panel">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <span class="articles-info-icon">📋</span>
+        <p>Cette section documente toutes mes activités techniques réalisées en stage.
+        Chaque article suit la structure : <span class="text-cyan">Contexte → Objectif → Environnement → Étapes → Difficultés → Solution → Compétences mobilisées.</span></p>
+      </div>
+    </div>
+
+    <div class="articles-grid reveal">
+
+      <!-- ARTICLE TEMPLATE 1 -->
+      <div class="article-card">
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="article-num">ART_01</span>
+            <span class="article-date">JJ/MM/AAAA</span>
+          </div>
+          <span class="article-status status-wip">À RÉDIGER</span>
+        </div>
+        <h3 class="article-title">Titre de l'activité technique</h3>
+        <p class="article-excerpt">
+          Décrivez en 2 lignes le contexte : quel était le besoin de l'entreprise
+          et ce que vous avez mis en place.
+        </p>
+        <div class="article-env">
+          <span class="env-label">ENV //</span>
+          <span class="tag">OS</span>
+          <span class="tag">Outil</span>
+          <span class="tag">Logiciel</span>
+        </div>
+        <div class="article-footer">
+          <div class="article-skills">
+            <span class="tag tag-yellow">Compétence 1</span>
+            <span class="tag tag-yellow">Compétence 2</span>
+          </div>
+          <button class="article-btn" onclick="toggleArticle(this)">LIRE →</button>
+        </div>
+
+        <!-- CONTENU DÉVELOPPÉ -->
+        <div class="article-content" style="display:none">
+          <div class="article-section">
+            <div class="article-section-title">// 1. CONTEXTE</div>
+            <p>Quel était le besoin de l'entreprise ? Pourquoi cette tâche a-t-elle été nécessaire ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 2. OBJECTIF</div>
+            <p>Ce qu'il fallait réaliser concrètement.</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 3. ENVIRONNEMENT TECHNIQUE</div>
+            <ul class="article-list">
+              <li>OS : À compléter</li>
+              <li>Outils : À compléter</li>
+              <li>Logiciels : À compléter</li>
+            </ul>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 4. ÉTAPES RÉALISÉES</div>
+            <p>Décrivez les étapes, commandes utilisées, configurations effectuées...</p>
+            <div class="code-block">
+              <span class="code-comment"># Exemple de commande</span><br>
+              $ votre_commande_ici
+            </div>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 5. DIFFICULTÉS RENCONTRÉES</div>
+            <p>Quels problèmes avez-vous rencontré ? Erreurs, blocages, incompréhensions...</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 6. SOLUTION APPORTÉE</div>
+            <p>Comment avez-vous résolu le problème ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 7. COMPÉTENCES MOBILISÉES</div>
+            <div class="skill-tags">
+              <span class="tag tag-yellow">Compétence 1</span>
+              <span class="tag tag-yellow">Compétence 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE TEMPLATE 2 -->
+      <div class="article-card">
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="article-num">ART_02</span>
+            <span class="article-date">JJ/MM/AAAA</span>
+          </div>
+          <span class="article-status status-wip">À RÉDIGER</span>
+        </div>
+        <h3 class="article-title">Titre de l'activité technique</h3>
+        <p class="article-excerpt">
+          Décrivez en 2 lignes le contexte : quel était le besoin de l'entreprise
+          et ce que vous avez mis en place.
+        </p>
+        <div class="article-env">
+          <span class="env-label">ENV //</span>
+          <span class="tag">OS</span>
+          <span class="tag">Outil</span>
+          <span class="tag">Logiciel</span>
+        </div>
+        <div class="article-footer">
+          <div class="article-skills">
+            <span class="tag tag-yellow">Compétence 1</span>
+            <span class="tag tag-yellow">Compétence 2</span>
+          </div>
+          <button class="article-btn" onclick="toggleArticle(this)">LIRE →</button>
+        </div>
+        <div class="article-content" style="display:none">
+          <div class="article-section">
+            <div class="article-section-title">// 1. CONTEXTE</div>
+            <p>Quel était le besoin de l'entreprise ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 2. OBJECTIF</div>
+            <p>Ce qu'il fallait réaliser concrètement.</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 3. ENVIRONNEMENT TECHNIQUE</div>
+            <ul class="article-list">
+              <li>OS : À compléter</li>
+              <li>Outils : À compléter</li>
+            </ul>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 4. ÉTAPES RÉALISÉES</div>
+            <p>Décrivez les étapes...</p>
+            <div class="code-block">
+              <span class="code-comment"># Exemple de commande</span><br>
+              $ votre_commande_ici
+            </div>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 5. DIFFICULTÉS RENCONTRÉES</div>
+            <p>Quels problèmes avez-vous rencontré ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 6. SOLUTION APPORTÉE</div>
+            <p>Comment avez-vous résolu le problème ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 7. COMPÉTENCES MOBILISÉES</div>
+            <div class="skill-tags">
+              <span class="tag tag-yellow">Compétence 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE TEMPLATE 3 -->
+      <div class="article-card">
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="article-num">ART_03</span>
+            <span class="article-date">JJ/MM/AAAA</span>
+          </div>
+          <span class="article-status status-wip">À RÉDIGER</span>
+        </div>
+        <h3 class="article-title">Titre de l'activité technique</h3>
+        <p class="article-excerpt">
+          Décrivez en 2 lignes le contexte : quel était le besoin de l'entreprise
+          et ce que vous avez mis en place.
+        </p>
+        <div class="article-env">
+          <span class="env-label">ENV //</span>
+          <span class="tag">OS</span>
+          <span class="tag">Outil</span>
+        </div>
+        <div class="article-footer">
+          <div class="article-skills">
+            <span class="tag tag-yellow">Compétence 1</span>
+          </div>
+          <button class="article-btn" onclick="toggleArticle(this)">LIRE →</button>
+        </div>
+        <div class="article-content" style="display:none">
+          <div class="article-section">
+            <div class="article-section-title">// 1. CONTEXTE</div>
+            <p>Quel était le besoin de l'entreprise ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 2. OBJECTIF</div>
+            <p>Ce qu'il fallait réaliser concrètement.</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 3. ENVIRONNEMENT TECHNIQUE</div>
+            <ul class="article-list">
+              <li>OS : À compléter</li>
+            </ul>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 4. ÉTAPES RÉALISÉES</div>
+            <p>Décrivez les étapes...</p>
+            <div class="code-block">$ votre_commande_ici</div>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 5. DIFFICULTÉS RENCONTRÉES</div>
+            <p>Quels problèmes avez-vous rencontré ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 6. SOLUTION APPORTÉE</div>
+            <p>Comment avez-vous résolu le problème ?</p>
+          </div>
+          <div class="article-section">
+            <div class="article-section-title">// 7. COMPÉTENCES MOBILISÉES</div>
+            <div class="skill-tags">
+              <span class="tag tag-yellow">Compétence 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD MORE CARD -->
+      <div class="article-card article-card--add">
+        <div class="add-icon">+</div>
+        <div class="add-text">Ajouter un article</div>
+        <div class="add-sub">Dupliquez le code d'un article<br>et complétez-le avec votre activité</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CV -->
   <section id="cv" class="section">
     <div class="section-header reveal">
-      <div class="section-num">03</div>
+      <div class="section-num">05</div>
       <div class="section-info">
         <p class="section-tag">// CURRICULUM VITAE</p>
         <h2 class="section-title">MON <span class="text-yellow">CV</span></h2>
       </div>
     </div>
 
-    <div class="cv-container reveal">
+    <div class="cv-solo reveal">
       <div class="cv-card">
         <div class="cv-card-top">
           <div class="cv-label">DOSSIER // PERSONNEL</div>
@@ -353,24 +686,255 @@
         <div class="card-corner tl"></div>
         <div class="card-corner br"></div>
       </div>
+    </div>
+  </section>
 
-      <div class="cv-contact">
-        <div class="contact-title">CONTACT // RÉSEAU</div>
-        <div class="contact-list">
-          <a href="mailto:aygoumisv@gmail.com" class="contact-item">
-            <span class="contact-icon">✉</span>
-            <span>aygoumisv@gmail.com</span>
+  <!-- VEILLE TECHNOLOGIQUE -->
+  <section id="veille" class="section">
+    <div class="section-header reveal">
+      <div class="section-num">06</div>
+      <div class="section-info">
+        <p class="section-tag">// VEILLE TECHNOLOGIQUE</p>
+        <h2 class="section-title">VEILLE <span class="text-yellow">TECH</span></h2>
+      </div>
+    </div>
+
+    <div class="veille-intro reveal">
+      <div class="panel articles-info-panel">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <span class="articles-info-icon">📡</span>
+        <p>La veille technologique consiste à surveiller en permanence les évolutions du secteur IT.
+        Elle me permet de rester à jour sur les nouvelles technologies, vulnérabilités, outils et bonnes pratiques
+        dans le domaine des <span class="text-cyan">réseaux, systèmes et cybersécurité</span>.</p>
+      </div>
+    </div>
+
+    <div class="veille-grid reveal">
+
+      <!-- VEILLE 1 -->
+      <div class="veille-card">
+        <div class="veille-card-header">
+          <div class="veille-topic-icon">⚠️</div>
+          <div>
+            <div class="veille-topic">CYBERSÉCURITÉ</div>
+            <h3 class="veille-title">Fuite de données</h3>
+          </div>
+        </div>
+        <p class="veille-desc">
+          Les fuites de données sont des incidents où des informations confidentielles
+          sont exposées ou volées, souvent suite à une faille de sécurité, une erreur humaine
+          ou une attaque malveillante. Elles représentent un risque majeur pour les entreprises
+          et les particuliers.
+        </p>
+        <div class="veille-sources">
+          <div class="veille-sources-label">SOURCES //</div>
+          <a href="https://www.cert.ssi.gouv.fr" target="_blank" class="veille-source-link">cert.ssi.gouv.fr</a>
+          <a href="https://www.lemondeinformatique.fr" target="_blank" class="veille-source-link">lemondeinformatique.fr</a>
+        </div>
+        <div class="veille-footer">
+          <div class="veille-tags">
+            <span class="tag tag-yellow">Cybersécurité</span>
+            <span class="tag">RGPD</span>
+            <span class="tag">Data</span>
+          </div>
+          <span class="veille-date">2025</span>
+        </div>
+      </div>
+
+      <!-- VEILLE 2 -->
+      <div class="veille-card">
+        <div class="veille-card-header">
+          <div class="veille-topic-icon">🤖</div>
+          <div>
+            <div class="veille-topic">INTELLIGENCE ARTIFICIELLE</div>
+            <h3 class="veille-title">Évolution de l'IA</h3>
+          </div>
+        </div>
+        <p class="veille-desc">
+          L'intelligence artificielle évolue rapidement et transforme de nombreux secteurs,
+          dont l'informatique et les réseaux. De nouveaux modèles, outils et usages
+          apparaissent régulièrement, impactant aussi bien la cybersécurité que
+          l'administration système.
+        </p>
+        <div class="veille-sources">
+          <div class="veille-sources-label">SOURCES //</div>
+          <a href="https://www.01net.com" target="_blank" class="veille-source-link">01net.com</a>
+          <a href="https://www.lemondeinformatique.fr" target="_blank" class="veille-source-link">lemondeinformatique.fr</a>
+        </div>
+        <div class="veille-footer">
+          <div class="veille-tags">
+            <span class="tag tag-yellow">IA</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Automatisation</span>
+          </div>
+          <span class="veille-date">2025</span>
+        </div>
+      </div>
+
+      <!-- VEILLE 3 -->
+      <div class="veille-card">
+        <div class="veille-card-header">
+          <div class="veille-topic-icon">🖥️</div>
+          <div>
+            <div class="veille-topic">SYSTÈMES</div>
+            <h3 class="veille-title">Titre du sujet de veille</h3>
+          </div>
+        </div>
+        <p class="veille-desc">
+          Décrivez ici ce que vous avez appris sur ce sujet.
+          Mise à jour OS, nouvelle version logicielle, bonne pratique
+          d'administration système...
+        </p>
+        <div class="veille-sources">
+          <div class="veille-sources-label">SOURCES //</div>
+          <a href="#" target="_blank" class="veille-source-link">nom-du-site.com</a>
+        </div>
+        <div class="veille-footer">
+          <div class="veille-tags">
+            <span class="tag tag-yellow">Thème</span>
+            <span class="tag">Mot-clé</span>
+          </div>
+          <span class="veille-date">JJ/MM/AAAA</span>
+        </div>
+      </div>
+
+      <!-- VEILLE 4 -->
+      <div class="veille-card">
+        <div class="veille-card-header">
+          <div class="veille-topic-icon">⚙️</div>
+          <div>
+            <div class="veille-topic">OUTILS & INFRA</div>
+            <h3 class="veille-title">Titre du sujet de veille</h3>
+          </div>
+        </div>
+        <p class="veille-desc">
+          Décrivez ici ce que vous avez appris sur ce sujet.
+          Nouveau logiciel, outil DevOps, solution de virtualisation
+          ou de supervision découvert.
+        </p>
+        <div class="veille-sources">
+          <div class="veille-sources-label">SOURCES //</div>
+          <a href="#" target="_blank" class="veille-source-link">nom-du-site.com</a>
+        </div>
+        <div class="veille-footer">
+          <div class="veille-tags">
+            <span class="tag tag-yellow">Thème</span>
+            <span class="tag">Mot-clé</span>
+          </div>
+          <span class="veille-date">JJ/MM/AAAA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOURCES HABITUELLES -->
+    <div class="veille-sources-panel reveal">
+      <div class="panel">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="panel-label">// MES SOURCES DE VEILLE HABITUELLES</div>
+        <div class="sources-grid">
+          <a href="https://www.cert.ssi.gouv.fr" target="_blank" class="source-item">
+            <span class="source-icon">🛡️</span>
+            <span class="source-name">CERT-FR</span>
+            <span class="source-desc">Alertes sécurité nationales</span>
           </a>
-          <a href="https://linkedin.com/in/aygoum-isayev" target="_blank" class="contact-item">
-            <span class="contact-icon">in</span>
-            <span>linkedin</span>
+          <a href="https://www.lemondeinformatique.fr" target="_blank" class="source-item">
+            <span class="source-icon">📰</span>
+            <span class="source-name">Le Monde Informatique</span>
+            <span class="source-desc">Actualités IT</span>
           </a>
-          <a href="https://github.com/SOGA05" target="_blank" class="contact-item">
-            <span class="contact-icon">{ }</span>
-            <span>GitHub</span>
+          <a href="https://www.01net.com" target="_blank" class="source-item">
+            <span class="source-icon">📡</span>
+            <span class="source-name">01net</span>
+            <span class="source-desc">Tech & numérique</span>
+          </a>
+          <a href="https://www.reddit.com/r/networking" target="_blank" class="source-item">
+            <span class="source-icon">💬</span>
+            <span class="source-name">Reddit /r/networking</span>
+            <span class="source-desc">Communauté réseau</span>
+          </a>
+          <a href="https://cvefeed.io" target="_blank" class="source-item">
+            <span class="source-icon">⚠️</span>
+            <span class="source-name">CVE Feed</span>
+            <span class="source-desc">Vulnérabilités connues</span>
+          </a>
+          <a href="https://github.com/trending" target="_blank" class="source-item">
+            <span class="source-icon">{ }</span>
+            <span class="source-name">GitHub Trending</span>
+            <span class="source-desc">Projets open source</span>
           </a>
         </div>
       </div>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-header reveal">
+      <div class="section-num">07</div>
+      <div class="section-info">
+        <p class="section-tag">// ME CONTACTER</p>
+        <h2 class="section-title">CONTACT <span class="text-yellow">DIRECT</span></h2>
+      </div>
+    </div>
+
+    <div class="contact-grid reveal">
+
+      <div class="contact-card">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="contact-card-label">// DISPONIBILITÉ</div>
+        <div class="contact-avail">
+          <span class="status-dot"></span>
+          <span class="text-cyan">Disponible pour alternance / stage</span>
+        </div>
+        <p class="contact-card-desc">
+          Étudiant en BTS SIO SISR à Nantes, je suis à la recherche
+          d'opportunités en alternance ou stage dans le domaine
+          des réseaux et de l'administration système.
+        </p>
+        <div class="contact-info-list">
+          <div class="contact-info-row">
+            <span class="contact-info-icon">◉</span>
+            <span>Nantes, 44300</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-icon">✆</span>
+            <a href="tel:0783521406">07 83 52 14 06</a>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-icon">✉</span>
+            <a href="mailto:aygoumisv@gmail.com">aygoumisv@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-links-grid">
+        <a href="mailto:aygoumisv@gmail.com" class="contact-link-card">
+          <div class="clc-icon">✉</div>
+          <div class="clc-label">EMAIL</div>
+          <div class="clc-val">aygoumisv@gmail.com</div>
+        </a>
+        <a href="tel:0783521406" class="contact-link-card">
+          <div class="clc-icon">✆</div>
+          <div class="clc-label">TÉLÉPHONE</div>
+          <div class="clc-val">07 83 52 14 06</div>
+        </a>
+        <a href="https://linkedin.com/in/aygoum-isayev" target="_blank" class="contact-link-card">
+          <div class="clc-icon">in</div>
+          <div class="clc-label">LINKEDIN</div>
+          <div class="clc-val">Aygoum Isayev</div>
+        </a>
+        <a href="https://github.com/SOGA05" target="_blank" class="contact-link-card">
+          <div class="clc-icon">{ }</div>
+          <div class="clc-label">GITHUB</div>
+          <div class="clc-val">SOGA05</div>
+        </a>
+      </div>
+
     </div>
   </section>
 

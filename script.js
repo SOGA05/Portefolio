@@ -348,4 +348,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   drawParticles();
 
+  // ─────────────────────────────────────────
+  // 13. TOGGLE ARTICLES
+  window.toggleArticle = function(btn) {
+    const card = btn.closest(".article-card");
+    const content = card.querySelector(".article-content");
+    const isOpen = content.style.display !== "none";
+    content.style.display = isOpen ? "none" : "block";
+    btn.textContent = isOpen ? "LIRE →" : "FERMER ✕";
+    btn.style.color = isOpen ? "var(--cyan)" : "var(--yellow)";
+    btn.style.borderColor = isOpen ? "var(--cyan)" : "var(--yellow)";
+    if (!isOpen) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
+  // ─────────────────────────────────────────
+  // 14. BASCULE THÈME CLAIR / SOMBRE
+  // ─────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon  = themeToggle.querySelector('.theme-toggle-icon');
+  const themeLabel = themeToggle.querySelector('.theme-toggle-label');
+
+  // Mémoriser le choix de l'utilisateur
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') applyLight();
+
+  themeToggle.addEventListener('click', () => {
+    if (document.body.classList.contains('light-mode')) {
+      applyDark();
+    } else {
+      applyLight();
+    }
+  });
+
+  function applyLight() {
+    document.body.classList.add('light-mode');
+    themeIcon.textContent  = '🌙';
+    themeLabel.textContent = 'MODE SOMBRE';
+    localStorage.setItem('theme', 'light');
+  }
+
+  function applyDark() {
+    document.body.classList.remove('light-mode');
+    themeIcon.textContent  = '☀️';
+    themeLabel.textContent = 'MODE CLAIR';
+    localStorage.setItem('theme', 'dark');
+  }
+
 }); // end DOMContentLoaded
+
+  // ─────────────────────────────────────────
+  // 13. TOGGLE ARTICLES TECHNIQUES
+  // ─────────────────────────────────────────
+  // (Défini globalement pour le onclick inline)
+
